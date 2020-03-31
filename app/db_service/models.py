@@ -26,7 +26,7 @@ class Owner(db.Model):
     match = db.relationship("Match", uselist=False, back_populates="owner")
 
     def __repr__(self):
-        return '<Puppy id={} name={} description={}>'.format(self.id, self.name, self.description)
+        return '<Owner id={} name={} description={}>'.format(self.id, self.name, self.description)
 
     def as_dict(self):
         return {column.name: getattr(self, column.name) for column in self.__table__.columns}
@@ -43,7 +43,7 @@ class Match(db.Model):
 
 
     def __repr__(self):
-        return '<Puppy id={} owner_id={} puppy_id={}>'.format(self.id, self.owner_id, self.puppy_id)
+        return '<Match id={} owner_id={} puppy_id={}>'.format(self.id, self.owner_id, self.puppy_id)
 
     def as_dict(self):
         return {column.id: getattr(self, column.id) for column in self.__table__.columns}
