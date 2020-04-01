@@ -7,7 +7,7 @@ class Puppy(db.Model):
     name = db.Column(db.String(100), nullable=False, index=True)
     description = db.Column(db.Text)
     tag = db.Column(db.String(100), nullable=False, index=True)
-    photos = db.Column(db.String(100))
+    photo = db.Column(db.String(100))
     match = db.relationship("Match", uselist=False, back_populates="puppy")
 
     def __repr__(self):

@@ -1,13 +1,25 @@
 import json
 
 from sqlalchemy import literal_column
+from sqlalchemy_imageattach.context import store_context
 
 from app import db
 from flask import abort, Blueprint
 
-from app.db_service.models import Puppy
+from app.db_service.models import Puppy, Match
 
 api = Blueprint('puppy_view', __name__)
+
+
+# def set_picture(request, puppy_id):
+#     try:
+#         puppy = db.session.query(Puppy).get(int(puppy_id))
+#         with db.store_context(store):
+#             puppy.picture.from_file(request.files['picture'])
+#     except Exception:
+#         db.session.rollback()
+#         raise
+#     db.session.commit()
 
 
 def addPuppy(id: int, name: int, description: str, tag: str, photos: str):
@@ -17,7 +29,7 @@ def addPuppy(id: int, name: int, description: str, tag: str, photos: str):
     db.session.commit()
 
 
-@api.route('/api/puppies', method="GET")
+@api.route('/api/puppies', method=['GET'])
 def getAllPuppies():
     try:
         query_result = db.session.query(Puppy).all()
@@ -40,8 +52,8 @@ def getAllPuppies():
 
     return json_list
 
-@api.route('api/pupies/<id>', method="GET")
-def getPuppy(id: int):
+@api.route('api/puppies/<int:id>', method=['GET'])
+def getPuppy(id):
     try:
         query_result = db.session.query(Puppy).filter(Puppy.id == id).all()
     except:

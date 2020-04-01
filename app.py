@@ -20,7 +20,7 @@ app = Flask(__name__)
 #     return render_template('index.html', url=url, hostname=socket.gethostname())
 
 
-@app.route("/", methods=["GET"])
+@app.route("/", methods=['GET'])
 def index():
     return render_template(
         "index.html",
