@@ -5,16 +5,9 @@ from sqlalchemy import literal_column
 from app import db
 from flask import abort, Blueprint
 
-from app.db_service.models import Owner, Puppy, Match
+from app.database.models import Owner, Puppy, Match
 
-api = Blueprint('match_view', __name__)
-
-
-def addMatch(id: int, owner_id: int, puppy_id: int):
-    newMatch = Match(id=id, owner_id=owner_id, puppy_id=puppy_id)
-
-    db.session.add(newMatch)
-    db.session.commit()
+api = Blueprint('match', __name__)
 
 
 @api.route('/api/matches')
@@ -28,7 +21,7 @@ def getMatches():
     matches = []
 
     for match in query_result:
-        match.append({
+        matches.append({
             'id': match.id,
             'owner_id': match.owner_id,
             'puppy_id': match.puppy_id,

@@ -5,17 +5,9 @@ from sqlalchemy import literal_column
 from app import db
 from flask import abort, Blueprint
 
-from app.db_service.models import Owner
+from app.database.models import Owner
 
-api = Blueprint('owner_view', __name__)
-
-
-def addOwner(id: int, name: str, description: str):
-    newOwner = Owner(id=id, name=name, description=description)
-
-    db.session.add(newOwner)
-    db.session.commit()
-
+api = Blueprint('owner', __name__)
 
 @api.route('/api/owners')
 def getOwners():
@@ -28,7 +20,7 @@ def getOwners():
     owners = []
 
     for owner in query_result:
-        owner.append({
+        owners.append({
             'id': owner.id,
             'owner': owner.name,
             'description': owner.description,

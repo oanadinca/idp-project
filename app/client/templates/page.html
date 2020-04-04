@@ -1,0 +1,26 @@
+<form>
+    <button formaction="http://127.0.0.1:5001/api/puppies">Puppies</button>
+    <button formaction="http://127.0.0.1:5001/api/owners">Owners</button>
+    <button formaction="http://127.0.0.1:5001/api/matches">Matches</button>
+  </form>
+<table border="1">
+    <thead>
+        <tr>
+            <th colspan = {{ size }}>{{ tablename }}</th>
+        </tr>
+        <tr>
+            {% for col in colnames %}
+            <th>{{ col }}</th>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for record in records %}
+        <tr>
+            {% for col in record %}
+            <td>{{ col }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

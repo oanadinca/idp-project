@@ -1,16 +1,11 @@
-FROM alpine:edge
+FROM python:3.6
 
-RUN apk update 
-RUN apk add py-pip
+WORKDIR /usr/src/app
 
-COPY requirements.txt /usr/src/app
+COPY requirements.txt ./
+RUN pip3 install --no-cache-dir -r requirements.txt
 
-RUN pip install --no-cache-dir -r /usr/src/app/requirements.txt
+COPY . .
 
-COPY app.py /usr/src/app
-
-COPY app/templates/index.html /usr/src/app/templates/
-
-EXPOSE 5000
-
-CMD ["python3", "/usr/src/app/app.py"]
+RUN export FLASK_APP=app.py
+ENTRYPOINT ["flask", "run", "--host=0.0.0.0"]
