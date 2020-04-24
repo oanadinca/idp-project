@@ -1,5 +1,5 @@
 import json
-from flask import request
+from flask import request, jsonify
 
 from sqlalchemy import literal_column
 from sqlalchemy_imageattach.context import store_context
@@ -34,8 +34,10 @@ def getAllPuppies():
 
     return json_list
 
-@api.route('/api/puppies/<int:id>', methods=['GET'])
-def getPuppy(id):
+@api.route('/api/puppy', methods=['GET'])
+def getPuppy():
+
+    id = int(request.args.get('id'))
     try:
         query_result = db.session.query(Puppy).filter(Puppy.id == id).all()
     except:
@@ -44,3 +46,49 @@ def getPuppy(id):
         
     return query_result[0].to_json()
 
+
+@api.route('/api/puppy', methods=['POST','PUT'])
+def postPuppy():
+
+    my_json = {}
+    my_json['id'] = int(request.args.get('id'))
+    my_json['name'] = (request.args.get('name'))
+    my_json['description'] = (request.args.get('description'))
+    my_json['tag'] = (request.args.get('tag'))
+
+    puppy = Puppy(my_json)
+
+    try:
+        if request.method == 'POST':
+            puppy.save()
+        else:
+            id = int(request.args.get('id'))
+            query_result = db.session.query(Puppy).filter(Puppy.id == id).all()
+            query_result[0].delete()
+            puppy.save()
+    except Exception as e:
+        print(e)
+        return abort(406)
+
+    response = "Successfully saved puppy"
+
+    return jsonify(response), 200
+
+@api.route('/api/puppy', methods=['DELETE'])
+def deletePuppy():
+
+    id = int(request.args.get('id'))
+
+    try:
+        query_result = db.session.query(Puppy).filter(Puppy.id == id).all()
+        query_result[0].delete()
+    except Exception as e:
+        print(e)
+        return abort(406)
+        
+    response = "Successfully deleted puppy"
+
+    return jsonify(response), 200
+
+    
+    

@@ -5,6 +5,7 @@ import database
 
 app = Flask(__name__)
 
+#asta nu merge
 @app.route("/")
 def index():
     return render_template(

@@ -58,7 +58,7 @@ class Owner(db.Model):
     def __init__(self, json_client):
         self.id = json_client['id']
         self.name = json_client['name']
-        self.description = ''
+        self.description = json_client['description']
 
     def save(self):
         db.session.add(self)
