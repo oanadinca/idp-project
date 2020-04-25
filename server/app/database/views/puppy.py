@@ -6,6 +6,7 @@ from sqlalchemy_imageattach.context import store_context
 
 from app import db
 from flask import abort, Blueprint
+from flask_cors import CORS, cross_origin
 
 from app.database.models import Puppy, Match
 
@@ -13,6 +14,7 @@ api = Blueprint('puppy', __name__)
 
 
 @api.route('/api/puppies', methods=['GET'])
+@cross_origin() # allow all origins all methods.
 def get_puppies():
     try:
         query_result = db.session.query(Puppy).all()
@@ -35,6 +37,7 @@ def get_puppies():
     return json_list
 
 @api.route('/api/puppy', methods=['GET'])
+@cross_origin() # allow all origins all methods.
 def get_puppy():
 
     id = int(request.args.get('id'))
@@ -48,6 +51,7 @@ def get_puppy():
 
 
 @api.route('/api/puppy', methods=['POST','PUT'])
+@cross_origin() # allow all origins all methods.
 def post_or_update_puppy():
 
     my_json = {}
@@ -75,6 +79,7 @@ def post_or_update_puppy():
     return jsonify(response), 200
 
 @api.route('/api/puppy', methods=['DELETE'])
+@cross_origin() # allow all origins all methods.
 def delete_puppy():
 
     id = int(request.args.get('id'))

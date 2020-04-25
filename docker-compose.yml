@@ -4,6 +4,7 @@ services:
     image: oanadi/idp:backend
     ports:
       - "8888:5000"
+    hostname: server
   
   db:
     image: postgres
@@ -16,8 +17,14 @@ services:
   admin:
     image: oanadi/idp:dbadmin
     hostname: admin
-    networks:
-      - dbconnect
     depends_on:
       - backend
       - db
+
+  client:
+    build: ./client
+    ports:
+      - "8080:80"
+    depends_on:
+      - admin
+      - backend

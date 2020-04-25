@@ -1,0 +1,124 @@
+body {
+  background: linear-gradient(to left, #ffcccc 0%, #660033 45%) !important;
+}
+
+.buttonContainer {
+  height: 200px;
+  position: relative;
+}
+
+.vertical-center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.myNav {
+  box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+  background: linear-gradient(to right, #ffcccc 0%, #660033 100%) !important;
+}
+
+.active {
+  background-color: #0abfbc!important;
+}
+
+.nav-link {
+  text-align: center;
+  color: #0abfbc;
+  box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+}
+
+.navigation {
+  font-size: 25px;
+  font-weight: lighter;
+  letter-spacing: 7px;
+  text-transform: uppercase;
+  margin-left: 30px;
+}
+
+.form-control {
+  margin:15px 0px;
+}
+
+.index-links div {
+ margin:16px 14px 0;
+ width:calc(100% - 32px);
+ height:100px;
+ border-radius: 20px;
+ background-color: #cf6f97;
+}
+
+.index-links div h3:hover {
+  border: 0.5px solid #117a8b;
+  box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+
+}
+
+.index-links div h3{
+  font-family:Oswald;
+  font-size : 30px;
+  font-weight: 700;
+  color: #fff;
+  text-align: center ;
+  text-transform: uppercase;
+    line-height: 100px;
+    
+}
+@media only screen and (min-width: 1000px){
+  .index-banner{
+    height: 500px;
+  }
+  .index-banner h1{
+    padding-top: 100px;
+  }
+  .index-banner h2{
+    margin-top: 240px;
+  }
+  .index-links{
+    overflow: hidden;
+    
+  }
+    .index-links div{
+      height: 200px;
+      margin: 20px 10px 1px;
+      float: left;
+    }
+    .index-links div h3{
+    line-height: 200px;
+  }
+  .index-boxlink-square{
+    width:calc(25% - 20px) !important;
+  }
+  .index-boxlink-rectangle{
+    width:calc(50% - 20px) !important;
+  }
+  .wrapper{
+    width:1000px;
+    margin: 0 auto;
+  }
+  .quote{
+    margin-top: 90px;
+  }
+
+}
+
+.card-body {
+  background: white;
+  border-radius: 10px;
+  border-color: transparent;
+  box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+
+}
+
+.card-title {
+  background: #660033;
+  color: white;
+  border-radius: 50px;
+  font-size: 24px;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 5px;
+}

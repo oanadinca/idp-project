@@ -1,5 +1,6 @@
 flask==1.1.1
 flask-sqlalchemy
 flask-migrate
+flask-cors
 requests
 SQLAlchemy-ImageAttach
