@@ -4,3 +4,4 @@ flask-migrate
 flask-cors
 requests
 SQLAlchemy-ImageAttach
+prometheus-flask-exporter
