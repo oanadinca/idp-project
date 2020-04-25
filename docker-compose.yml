@@ -12,3 +12,12 @@ services:
       - POSTGRES_PASSWORD=abc
     ports:
       - "55432:5432"
+
+  admin:
+    image: oanadi/idp:dbadmin
+    hostname: admin
+    networks:
+      - dbconnect
+    depends_on:
+      - backend
+      - db

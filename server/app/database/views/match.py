@@ -13,7 +13,7 @@ api = Blueprint('match', __name__)
 
 
 @api.route('/api/matches', methods=['GET'])
-def getMatches():
+def get_matches():
     try:
         query_result = db.session.query(Match).all()
     except:
@@ -74,7 +74,7 @@ def post_or_update_match():
     return jsonify(response), 200
 
 @api.route('/api/match', methods=['DELETE'])
-def deleteMatch():
+def delete_match():
 
     id = int(request.args.get('id'))
 
