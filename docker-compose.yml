@@ -1,6 +1,6 @@
 version: '3.6'
 services:
-  backend_idp:
+  backend:
     image: oanadi/idp:backend
     ports:
       - "8888:5000"
