@@ -5,3 +5,4 @@ flask-cors
 requests
 SQLAlchemy-ImageAttach
 prometheus-flask-exporter
+flask_prometheus_metrics

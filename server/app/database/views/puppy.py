@@ -8,6 +8,7 @@ from app import db
 from flask import abort, Blueprint
 from flask_cors import CORS, cross_origin
 
+
 from app.database.models import Puppy, Match
 
 api = Blueprint('puppy', __name__)

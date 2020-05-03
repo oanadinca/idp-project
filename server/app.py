@@ -8,6 +8,7 @@ from prometheus_flask_exporter import PrometheusMetrics
 app = Flask(__name__)
 cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 metrics = PrometheusMetrics(app)
+metrics.info('app_info', 'Application info', version='1.0.3')
 
 if __name__ == "__main__":
 
