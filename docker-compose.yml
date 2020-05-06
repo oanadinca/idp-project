@@ -23,7 +23,6 @@ services:
     hostname: admin
     depends_on:
       - backend
-      - db
 
   client:
     build: ./client

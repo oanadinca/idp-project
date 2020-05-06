@@ -135,10 +135,10 @@ def delete_match(id):
 
 
 adminOps = {10: get_puppies,\
-			11: add_or_update_puppy,\
-			12: delete_puppy,\
+			12: add_or_update_puppy,\
+			13: delete_puppy,\
 			20: get_owners,\
-			21: delete_owner,\
+			23: delete_owner,\
 			30: get_matches,\
 			31: get_match,\
 			32: add_or_update_match,\
@@ -156,7 +156,8 @@ while (True):
     				"30 - get all matches\n"
     				"31 - get match\n"
   					"32 - add or update match\n"
-    				"33 - delete match\n"))
+    				"33 - delete match\n"
+    				"0  - break\n"))
 
 	if input_code == 0:
 		break
@@ -169,20 +170,20 @@ while (True):
 			name = input("\nInsert puppy name:\n")
 			description = input("\nInsert puppy description:\n")
 			tag = input("\nInsert puppy tag:\n")
-			adminOps[input_code](id,name,description,tag)
+			print(adminOps[input_code](id,name,description,tag))
 
 		if input_code == 13 or input_code == 23 or input_code == 33:
 			id = int(input("\nInsert id to delete entire field:\n"))
-			adminOps[input_code](id)
+			print(adminOps[input_code](id))
 
 		if input_code == 31:
 			id = int(input("\nInsert id to get entire field:\n"))
-			adminOps[input_code](id)
+			print(adminOps[input_code](id))
 
 		if input_code == 32:
 			id = int(input("\nInsert match id:\n"))
 			owner_id = int(input("\nInsert match owner_id:\n"))
 			puppy_id = int(input("\nInsert match puppy_id:\n"))
-			adminOps[input_code](id,owner_id,puppy_id)
+			print(adminOps[input_code](id,owner_id,puppy_id))
 
 
