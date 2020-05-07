@@ -3,7 +3,7 @@ services:
   backend:
     image: oanadi/idp:backend
     ports:
-      - "8888:5000"
+      - "5000:5000"
     hostname: server
     deploy:
       replicas: 1
@@ -25,9 +25,10 @@ services:
       - backend
 
   client:
-    build: ./client
+    image: oanadi/idp:client
     ports:
       - "8080:80"
+    hostname: client
     depends_on:
       - backend
 

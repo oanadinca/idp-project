@@ -8,5 +8,6 @@ RUN pip3 install --no-cache-dir -r requirements.txt
 COPY ./server/ /usr/src/app
 
 RUN export FLASK_APP=app.py
+RUN chmod u+x ./entrypoint_admin.sh
 RUN chmod u+x ./entrypoint.sh
 ENTRYPOINT ["./entrypoint.sh"]

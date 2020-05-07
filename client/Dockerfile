@@ -1,7 +1,5 @@
-FROM httpd:2.4
-
+FROM php:7.0-apache
+COPY . /var/www/html/
 EXPOSE 80
-
-WORKDIR /usr/local/apache2/htdocs/ 
-
-COPY ./ /usr/local/apache2/htdocs/ 
+CMD echo "ServerName localhost" >> /etc/apache2/apache2.conf
+CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]

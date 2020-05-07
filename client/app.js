@@ -1,4 +1,4 @@
-var url ="http://127.0.0.1:5000/"
+var url ="http://" + "localhost" + ":5000/"
 
 var urlPuppies = url + 'api/puppies'
 var urlOwner = url + 'api/owner'
@@ -59,6 +59,8 @@ $(document).ready(function () {
       }
     }
   })
+  
+    location.href = "puppies.html";
   });
 
 });

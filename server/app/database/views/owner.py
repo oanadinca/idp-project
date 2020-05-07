@@ -49,7 +49,7 @@ def get_owner():
     return query_result[0].to_json()
 
 
-@api.route('/api/owner', methods=['OPTIONS'])
+@api.route('/api/owner', methods=['POST', 'PUT'])
 @cross_origin() # allow all origins all methods.
 def post_or_update_owner():
 
@@ -71,7 +71,7 @@ def post_or_update_owner():
     try:
         if request.method == 'POST':
             owner.save()
-        else:
+        elif request.method == 'PUT':
             id = int(request.args.get('id'))
             query_result = db.session.query(Owner).filter(Owner.id == id).all()
             query_result[0].delete()
