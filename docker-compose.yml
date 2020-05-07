@@ -23,6 +23,8 @@ services:
   admin:
     image: oanadi/idp:dbadmin
     hostname: admin
+    tty: true
+    stdin_open: true
     volumes:
       - 'shared:/usr/src/app/shared/'
     depends_on:
