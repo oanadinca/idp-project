@@ -5,6 +5,8 @@ services:
     ports:
       - "5000:5000"
     hostname: server
+    volumes:
+      - 'shared:/usr/src/app/shared/'
     deploy:
       replicas: 1
       restart_policy:
@@ -21,6 +23,8 @@ services:
   admin:
     image: oanadi/idp:dbadmin
     hostname: admin
+    volumes:
+      - 'shared:/usr/src/app/shared/'
     depends_on:
       - backend
 
@@ -46,3 +50,7 @@ services:
       - 9090:9090
     depends_on:
       - backend
+
+volumes:
+  shared:
+    driver: local 
