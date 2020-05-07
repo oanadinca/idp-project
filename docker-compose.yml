@@ -29,6 +29,7 @@ services:
       - 'shared:/usr/src/app/shared/'
     depends_on:
       - backend
+      - db
 
   client:
     image: oanadi/idp:client
