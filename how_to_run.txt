@@ -1,0 +1,12 @@
+
+- backend:
+
+sudo docker run -p 5000:5000 -v shared:/usr/src/app/shared/ oanadi/idp:backend
+
+- client:
+
+sudo docker run oanadi/idp:client
+
+- admin:
+
+sudo docker run -ti -v shared:/usr/src/app/shared/ oanadi/idp:dbadmin
