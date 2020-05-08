@@ -57,4 +57,4 @@ volumes:
   shared:
     driver: local 
 
-  prometheus_data: {}
+  prometheus: {}
